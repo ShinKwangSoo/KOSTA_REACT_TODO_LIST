@@ -4,10 +4,10 @@ import TodoItem from './TodoItem';
 class TodoItemList extends Component {
     render() {
         const { todos, onToggle, onRemove } = this.props;
+        const todoList = todos.map(({ id, text, checked }) => (<TodoItem id={id} text={text} checked={checked} onToggle={onToggle} onRemove={onRemove} key={id} />));
         return (
             <div>
-                <TodoItem text="첫번째 인자값" checked={false}/>
-                <TodoItem text="두번째 인자값" checked={true}/>
+                {todoList}
             </div>
         );
     }
